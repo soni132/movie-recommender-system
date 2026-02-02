@@ -1,8 +1,19 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
+import urllib.request
 
 import requests
+def download_file(url, filename):
+    if not os.path.exists(filename):
+        urllib.request.urlretrieve(url, filename)
+MOVIES_URL = "https://github.com/soni132/movie-recommender-system/releases/download/v2.0/movies_dict.pkl"
+SIMILARITY_URL = "https://github.com/soni132/movie-recommender-system/releases/download/v2.0/similarity.pkl"
+
+download_file(MOVIES_URL, "movies_dict.pkl")
+download_file(SIMILARITY_URL, "similarity.pkl")
+
 
 API_KEY = "c5c4aafc"
 
